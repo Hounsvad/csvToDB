@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.SVGPath?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="csv_to_db.FXMLDocumentController">
+   <top>
+      <MenuBar maxWidth="1.7976931348623157E308" BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#open" text="Open" />
+                  <MenuItem mnemonicParsing="false" onAction="#insert" text="Insert" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+                  <MenuItem mnemonicParsing="false" onAction="#paste" text="Paste" />
+                  <MenuItem mnemonicParsing="false" onAction="#clear" text="Clear" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <Menu mnemonicParsing="false" text="Settings">
+                    <items>
+                      <MenuItem mnemonicParsing="false" onAction="#clickConnectionDetails" text="Connection details" />
+                        <MenuItem mnemonicParsing="false" onAction="#clickTableDetails" text="Table details" />
+                    </items>
+                  </Menu>
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <StackPane BorderPane.alignment="CENTER">
+         <children>
+            <TableView fx:id="table" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="775.0" prefWidth="1280.0" />
+            <AnchorPane fx:id="connectionDetails" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="350.0" prefWidth="300.0" style="-fx-background-color: lightgray;" visible="false">
+               <children>
+                  <Label alignment="TOP_CENTER" layoutX="89.0" layoutY="28.0" text="Connection" AnchorPane.topAnchor="30.0">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <JFXTextField fx:id="url" layoutX="83.0" layoutY="101.0" promptText="URL" />
+                  <JFXTextField fx:id="username" layoutX="83.0" layoutY="162.0" prefWidth="135.0" promptText="Username" />
+                  <JFXPasswordField fx:id="password" layoutX="83.0" layoutY="225.0" promptText="Password" />
+                  <SVGPath content="M0 0 L2.5 0 L8.75 7.5 L15 0 L17.5 0 L10 8.75 L17.5 17.5 L15 17.5 L8.75 10 L2.5 17.5 L0 17.5 L7.5 8.75 Z" layoutX="270.0" layoutY="-21.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <SVGPath content="M0 0 L17.5 0 L17.5 17.5 L0 17.5 Z" fill="TRANSPARENT" focusTraversable="true" layoutX="282.0" onMouseClicked="#closePupup" />
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="tableDetails" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="350.0" prefWidth="300.0" style="-fx-background-color: lightgray;" visible="false">
+               <children>
+                  <Label alignment="TOP_CENTER" layoutX="121.0" layoutY="25.0" text="Table" AnchorPane.topAnchor="30.0">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <SVGPath content="M0 0 L2.5 0 L8.75 7.5 L15 0 L17.5 0 L10 8.75 L17.5 17.5 L15 17.5 L8.75 10 L2.5 17.5 L0 17.5 L7.5 8.75 Z" layoutX="270.0" layoutY="-21.0" onMouseClicked="#closePupup" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <SVGPath content="M0 0 L17.5 0 L17.5 17.5 L0 17.5 Z" fill="TRANSPARENT" focusTraversable="true" layoutX="292.0" onMouseClicked="#closePupup" AnchorPane.rightAnchor="0.0" />
+                  <JFXTextField fx:id="tableNameField" layoutX="83.0" layoutY="89.0" promptText="Table name" />
+                  <JFXTextField fx:id="columnNamesField" layoutX="83.0" layoutY="175.0" prefWidth="135.0" promptText="Column names" />
+                  <JFXTextField fx:id="columnTypesField" layoutX="83.0" layoutY="260.0" prefWidth="135.0" promptText="Column types" />
+               </children>
+            </AnchorPane>
+         </children>
+      </StackPane>
+   </center>
+   <bottom>
+      <Label fx:id="label" maxWidth="1.7976931348623157E308" prefWidth="1280.0" text="Label" BorderPane.alignment="BOTTOM_LEFT" />
+   </bottom>
+</BorderPane>
